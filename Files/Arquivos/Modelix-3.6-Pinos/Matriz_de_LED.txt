@@ -1,0 +1,12 @@
+Matriz de LED
+
+Este programa faz com que avisos enviados ao Dashboard apareçam na matriz de LED. Para que isto aconteça, é necessário conectar o Arduino Duemilanove com este programa à um Broker.
+
+Este código exige a conexão com um Broker. Veja o Flash "mobile_broker" de qualquer dispositivo ESP ou procure pelo Broker na tela de aplicativos.
+
+Conexões:
+VCC --> 5v
+GND --> GND
+Din --> D11
+CS  --> D10
+CLK --> D13

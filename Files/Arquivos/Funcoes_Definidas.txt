@@ -1,0 +1,40 @@
+CANAIS:
+A, B, C, D, E
+
+COMANDOS:
+A, B, C, D, E
+a, b, c, d, e
+
+TRIGGERS:
+- #email
+- #aviso
+- #mensagem
+- #voz
+- #rotina
+- #intranet
+- #input
+- #var
+- #output
+
+EXEMPLOS DE USO:
+- #email 1
+- #aviso 1
+- #mensagem Texto...
+- #voz Texto...
+- #rotina Nome_Rotina
+- #intranet COMANDO
+- #var 1CANAL = 0.5
+- #output CANAL = COMANDO
+- #input Deu certo?
+
+- #if input = Não Leon
+- #output A = A
+- #end if
+
+- #if input = Sim Leon
+- #output A = A
+- #end if
+
+- #if 1 = 1
+- #output D = A
+- #end if

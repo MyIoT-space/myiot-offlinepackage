@@ -1,0 +1,3 @@
+Guindaste
+
+Este código faz com que um projeto de robótica de guindaste possa ser controlado e monitorado pela internet através do Dashboard.

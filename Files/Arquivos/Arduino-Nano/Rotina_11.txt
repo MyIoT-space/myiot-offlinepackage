@@ -1,0 +1,16 @@
+Rotina 11:
+
+Esta rotina integra o sensor ultrassônico e PIR, além de duas saídas digitais!
+Este código exige uma conexão com um broker para enviar as seguintes informações:
+Sensor PIR------------> Var 1A
+Sensor Ultrassônico---> Var 2A
+
+Estes sensores estão conectados nas portas:
+Sensor PIR------------> D8
+Sensor Ultrassônico---> Echo->D2, Trigg->D9
+
+Além disso você pode controlar duas portas digitas utilizando qualquer canal:
+Comando 'A' ---> Ligar porta D12
+Comando 'a' ---> Desligar porta D12
+Comando 'B' ---> Ligar porta D13
+Comando 'b' ---> Desligar porta D13
