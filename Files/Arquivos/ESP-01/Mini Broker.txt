@@ -1,3 +1,0 @@
-Mobile Broker
-
-Este código faz com que a placa se torne um Broker. O objetivo deste código é deixar a placa como uma opção de Broker físico para o Arduino Duemilanove.

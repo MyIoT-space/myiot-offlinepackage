@@ -1,9 +1,0 @@
-Alarme de Passagem
-
-Este programa faz com que avisos sejam enviados ao Dashboard caso alguém passe na frente do sensor ultrassônico. Este código é explorado na aula 3.
-
-Este código exige a conexão com um Broker. Veja o Flash "mobile_broker" de qualquer dispositivo ESP ou procure pelo Broker na tela de aplicativos.
-
-Pinos:
-Echo --> D2
-Trig  --> D9

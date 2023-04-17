@@ -1,3 +1,0 @@
-DHT11
-
-O sensor DHT11 é um sensor de temperatura e umidade do ar. Este programa faz com que os dados lidos pelo sensor sejam comunicados em tempo real ao Dashboard.

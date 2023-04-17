@@ -1,3 +1,0 @@
-PIR
-
-O sensor PIR é capaz de perceber movimentação humana em uma área na frente de seu sensor. Tratando de um sensor digital, este programa comunica 0 ou 1 ao Dashboard.

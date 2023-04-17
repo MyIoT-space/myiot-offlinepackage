@@ -1,7 +1,0 @@
-DHT 11
-
-Este Flash conta com uma porta lendo o sensor DHT11 e outra porta funcionando como output digital. Esta porta digital é a D11 e é controlada pelo controle A. Já a leitura do DHT11 vai para o canal A Var 3 e Var 4, sendo o primeiro para o sensor de umidade e o segundo para o sensor de temperatura. 
-Este código exige conexão com o broker!
-Ligações: 
-Abrir o PDF para entender as ligações
-

@@ -1,4 +1,0 @@
-Sensor Ultrassônico + Dashboard
-
-Projeto que grava o valor do sensor Ultrassônico na Var0 dos Parâmetros A
-

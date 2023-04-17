@@ -1,3 +1,0 @@
-Driver Motor
-
-Com este programa a placa ESP-12 é capaz de dar comandos específicos para diferentes motores conectados à portas pré-definidas.

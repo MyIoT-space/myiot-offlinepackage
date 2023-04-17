@@ -1,3 +1,0 @@
-Cancela
-
-Este programa faz com que um sensor infravermelho acione o abrimento de um projeto de robótica de cancela.

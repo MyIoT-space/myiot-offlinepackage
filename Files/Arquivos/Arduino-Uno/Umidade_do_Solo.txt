@@ -1,7 +1,0 @@
-Sensor de Umidade Do Solo
-
-Este Flash conta com uma porta lendo o sensor sensor de umidade FC-28. A leitura do sensor
-vai para o canal A Var 5.
-Este código exige conexão com o broker!
-
-Para entender melhor as ligações abra o PDF

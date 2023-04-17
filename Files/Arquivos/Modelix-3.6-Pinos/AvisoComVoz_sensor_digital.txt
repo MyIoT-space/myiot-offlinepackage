@@ -1,7 +1,0 @@
-
-Aviso com voz acionados pelo sensor digital
-
-
-Esse programa consiste no envio de um aviso escrito e sonoro quando o sensor é acionado, um outro aviso apenas em texto é enviado quando o sensor está desativado. 
-
-Usar qualquer sensor digitar conectado a porta D3.

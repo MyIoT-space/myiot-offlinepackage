@@ -1,6 +1,0 @@
-LED Verde
-
-Este programa faz com que o LED verde pequeno onboard seja ativado e desativado pelo Dashboard. Para que isto aconteça, é necessário conectar o Arduino Duemilanove com este programa à um Broker.
-
-
-Este código exige a conexão com um Broker. Veja o Flash "mobile_broker" de qualquer dispositivo ESP ou procure pelo Broker na tela de aplicativos.

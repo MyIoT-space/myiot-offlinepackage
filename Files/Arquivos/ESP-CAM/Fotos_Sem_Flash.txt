@@ -1,3 +1,0 @@
-Fotos Sem Flash
-
-Este programa faz a ESPCAM tire fotos sem flash a cada 15 segundos e as grave em um cartão de memória.

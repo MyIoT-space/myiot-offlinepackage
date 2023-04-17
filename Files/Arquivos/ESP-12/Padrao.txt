@@ -1,3 +1,0 @@
-Padrão
-
-Este programa faz com que duas portas do microcontrolador possam ser controladas pelo Dashboard.

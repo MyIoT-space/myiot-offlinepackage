@@ -1,3 +1,0 @@
-Elevador de Carga
-
-Este código faz com que um projeto de robótica de elevador de carga possa ser controlado e monitorado pela internet através do Dashboard.

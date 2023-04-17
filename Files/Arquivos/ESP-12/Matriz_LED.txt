@@ -1,3 +1,0 @@
-Matriz LED
-
-Este programa faz com que avisos enviados ao Dashboard sejam vistos na matriz de LED.

@@ -1,3 +1,0 @@
-Mini Broker
-
-Este programa faz com que o microcontrolador se torne um Broker, tendo o objetivo de ser utilizado com Arduino Uno, Duemilanove, Nano e placas ESP.

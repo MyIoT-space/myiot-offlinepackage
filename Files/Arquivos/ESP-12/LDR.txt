@@ -1,3 +1,0 @@
-LDR
-
-Um sensor LDR é um sensor de luminosidade. Com este programa, a leitura de luminosidade do sensor será enviada automaticamente para o Dashboard.
