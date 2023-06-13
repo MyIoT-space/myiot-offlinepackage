@@ -1,1 +1,0 @@
-[{'Comando': '1', 'Texto': 'Aviso 1'}, {'Comando': '2', 'Texto': 'Aviso 2'}, {'Comando': '3', 'Texto': 'Aviso 3'}, {'Comando': '4', 'Texto': 'Aviso 4'}]
