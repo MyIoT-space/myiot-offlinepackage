@@ -1,0 +1,42 @@
+finalCode: 
+from machine import Pin, ADC, sleep, UART
+from time import sleep
+import utime
+
+blue = Pin(2, Pin.OUT, value=0)
+zzzaa = Pin(15, Pin.OUT, value=0)
+bto = Pin(34, Pin.IN)
+ldr39 = ADC(Pin(39, Pin.IN))
+ldr39.atten(ADC.ATTN_11DB)
+ldr39.width(ADC.WIDTH_12BIT)
+
+
+def AnalogConverter(value):
+    x = (100*value)/4095
+    if x > 100:
+        x = 100
+    return x
+
+while(True):
+
+    if(bto.value() == True):
+        zzzaa.on()
+    else:
+
+        zzzaa.off()
+
+
+
+
+    if(AnalogConverter(ldr39.read()) > ""50""):
+        blue.off()
+    else:
+
+        blue.on()
+
+
+
+
+
+
+    utime.sleep_ms(50)
