@@ -3,39 +3,36 @@ from machine import Pin, ADC, sleep, UART
 from time import sleep
 import utime
 
-blue = Pin(2, Pin.OUT, value=0)
-zzzaa = Pin(15, Pin.OUT, value=0)
-bto = Pin(34, Pin.IN)
-ldr39 = ADC(Pin(39, Pin.IN))
-ldr39.atten(ADC.ATTN_11DB)
-ldr39.width(ADC.WIDTH_12BIT)
+verde = Pin(19, Pin.OUT, value=0)
+botao = Pin(36, Pin.IN)
 
 
-def AnalogConverter(value):
-    x = (100*value)/4095
-    if x > 100:
-        x = 100
-    return x
+import network
+import ujson
+import urequests
+ssid = 'Rover'
+password = 'Modelix2017'
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+if not wlan.isconnected():
+    print('connecting to network...')
+    wlan.connect(ssid, password)
+    while not wlan.isconnected():
+        pass
+print('network config:', wlan.ifconfig())
 
 while(True):
+    if(botao.value() == True):
+        verde.off()
+        url = 'https://zap.leonuzzy.repl.co/send_mail'
+        headers = {'Content-Type': 'application/json'}
+        data = {'to': 'luciohf@al.insper.edu.br', 'subject': 'Opa', 'text': 'lucio Parabens, vc recebeu um aumento de 100 a hora\ '}
+        r = urequests.post(url, headers=headers, data=ujson.dumps(data))
+        print(r.text)
 
-    if(bto.value() == True):
-        zzzaa.on()
     else:
 
-        zzzaa.off()
-
-
-
-
-    if(AnalogConverter(ldr39.read()) > ""50""):
-        blue.off()
-    else:
-
-        blue.on()
-
-
-
+        verde.on()
 
 
 
