@@ -3,8 +3,8 @@ from machine import Pin, ADC, sleep, UART
 from time import sleep
 import utime
 
-vermelho = Pin(15, Pin.OUT, value=0)
-botaodireita = Pin(35, Pin.IN)
+verde = Pin(19, Pin.OUT, value=0)
+botao = Pin(35, Pin.IN)
 
 
 import network
@@ -22,17 +22,17 @@ if not wlan.isconnected():
 print('network config:', wlan.ifconfig())
 
 while(True):
-    if(botaodireita.value() == True):
+    if(botao.value() == True):
+        verde.on()
         url = 'https://zap.leonuzzy.repl.co/send_mail'
         headers = {'Content-Type': 'application/json'}
-        data = {'to': 'luisasr@al.insper.edu.br', 'subject': 'Amigo', 'text': 'Olá amigo, bom dia.\ '}
+        data = {'to': 'luissrodrigues08@gmail.com', 'subject': 'Teste', 'text': 'Email de Teste do funcionamento do Sucuri, eh nois valeuuu\'}
         r = urequests.post(url, headers=headers, data=ujson.dumps(data))
         print(r.text)
 
-        vermelho.off()
     else:
 
-        vermelho.on()
+        verde.off()
 
 
 
