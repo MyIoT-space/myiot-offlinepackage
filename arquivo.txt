@@ -4,32 +4,53 @@ from time import sleep
 import utime
 
 verde = Pin(19, Pin.OUT, value=0)
-botao = Pin(35, Pin.IN)
 
 
 import network
 import ujson
 import urequests
+led_azul = Pin(2, Pin.OUT, value=0)
 ssid = 'Rover'
 password = 'Modelix2017'
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
+if wlan.isconnected():
+    wlan.disconnect()
+wlan.config(dhcp_hostname='')
+maximo = 10
 if not wlan.isconnected():
-    print('connecting to network...')
+    tent = 0
     wlan.connect(ssid, password)
     while not wlan.isconnected():
-        pass
+        tent += 1
+        if tent >= maximo:
+            break
+        utime.sleep_ms(500)
+if wlan.isconnected():
+    led_azul.on()
+else:
+    while True:
+        led_azul.on()
+        utime.sleep_ms(500)
+        led_azul.off()
+        utime.sleep_ms(500)
 print('network config:', wlan.ifconfig())
 
 while(True):
-    if(botao.value() == True):
-        verde.on()
-        url = 'https://zap.leonuzzy.repl.co/send_mail'
-        headers = {'Content-Type': 'application/json'}
-        data = {'to': 'luissrodrigues08@gmail.com', 'subject': 'Teste', 'text': 'Email de Teste do funcionamento do Sucuri, eh nois valeuuu\'}
-        r = urequests.post(url, headers=headers, data=ujson.dumps(data))
-        print(r.text)
+    verde.off()
+    url = 'https://APIMyoT.leonuzzy.repl.co/brokerreadcol'
+    data = {'coluna': 'A, String_D', 'ID': '3'}
+    payload = ujson.dumps(data)
+    headers = {'Content-Type': 'application/json'}
+    response = urequests.post(url, headers=headers, data=payload)
+    valor_IoT = response.text
+    valor_IoT = valor_IoT.split(';')[1][:-1]
+    print(valor_IoT)
+    response.close()
+    if valor_IoT == 'teste luis':
 
+        verde.on()
+        sleep(1.00)
     else:
 
         verde.off()
