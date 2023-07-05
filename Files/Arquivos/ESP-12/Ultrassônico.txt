@@ -1,0 +1,3 @@
+Ultrassônico
+
+O sensor ultrassônico é capaz de perceber objetos mais próximos que 50cm na frente de seu leitor. Este programa comunica em tempo real sua leitura para o Dashboard.

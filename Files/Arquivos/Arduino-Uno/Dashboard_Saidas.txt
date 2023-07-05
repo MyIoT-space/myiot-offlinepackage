@@ -1,0 +1,14 @@
+Dashboard Acionando Saidas 
+
+Utilizar o Dashboard para acionar portas do microcontrolador:
+
+A --> Ligar D9
+B --> Ligar D10
+C --> Ligar D11
+D --> Ligar D12
+E --> Ligar D13
+a --> Desligar D9
+b --> Desligar D10
+c --> Desligar D11
+d --> Desligar D12
+e --> Desligar D13

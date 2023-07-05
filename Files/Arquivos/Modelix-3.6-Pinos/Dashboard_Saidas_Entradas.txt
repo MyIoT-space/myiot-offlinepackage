@@ -1,0 +1,26 @@
+Dashboard Acionando Saidas e Lendo Entradas
+
+Este código exige a conexão com um Broker. Veja o Flash "mobile_broker" de qualquer dispositivo ESP ou procure pelo Broker na tela de aplicativos.
+
+Utilizar o Dashboard para acionar portas do microcontrolador:
+
+A --> Ligar D10
+B --> Ligar D11
+C --> Ligar D12
+a --> Desligar D10
+b --> Desligar D11
+c --> Desligar D12
+
+No Dashboard as variáveis analizadas serão dos parâmetros A:
+
+D3 --> Var0
+D4 --> Var1
+D5 --> Var2
+A0 --> Var3
+A1 --> Var4
+A2 --> Var5
+
+Sensor  Ultrassônico no Var6, pinos:
+Echo --> D2
+Trig  --> D9
+

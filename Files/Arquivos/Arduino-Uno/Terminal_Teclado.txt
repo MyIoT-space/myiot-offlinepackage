@@ -1,0 +1,16 @@
+Terminal Teclado
+
+Este programa faz com que comandos sejam enviados ao Dashboard conforme botões são pressionados em ordens específicas. Para que isto aconteça, é necessário conectar o microcontrolador com este programa à um Broker.
+
+Este código exige a conexão com um Broker. Veja o Flash "mobile_broker" de qualquer dispositivo ESP ou procure pelo Broker na tela de aplicativos.
+
+Conexões:
+Da esquerda para direita quando o teclado está com os digitos para cima
+R1 --> D4
+R2 --> D5
+R3 --> D6
+R4 --> D7
+C1 --> D8
+C2 --> D9
+C3 --> D10
+C4 --> D11

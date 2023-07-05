@@ -1,0 +1,3 @@
+ESP ALEXA	
+
+Com este programa, sua ESP-12 se conectará com a Alexa e será possível enviar comandos ao Dashboard através de comandos de áudio ditos para a Alexa.

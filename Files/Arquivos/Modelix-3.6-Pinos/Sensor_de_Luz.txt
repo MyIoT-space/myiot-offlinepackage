@@ -1,0 +1,3 @@
+Sensor de Luz
+
+Este programa faz com que avisos sejam enviados ao Dashboard conforme há mudanças na luminosidade do ambiente. 

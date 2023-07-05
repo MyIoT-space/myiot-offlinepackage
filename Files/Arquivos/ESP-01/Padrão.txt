@@ -1,0 +1,3 @@
+Padrão
+
+O código padrão do ESP-01 permite que um relé conectado à ele possa ser ativado e desativado através da internet pelo Dashboard.

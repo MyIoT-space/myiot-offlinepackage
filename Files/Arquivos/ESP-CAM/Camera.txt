@@ -1,0 +1,3 @@
+Câmera
+
+Este programa faz com que uma transmissão ao vivo seja transmitida pela ESPCAM em rede local. Para acessar a transmissão, somente é necessário acessar o aplicativo câmera.

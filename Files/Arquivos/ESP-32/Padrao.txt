@@ -1,0 +1,3 @@
+Padrão
+
+Este programa faz com que as portas do microcontrolador possam ser controladas e lidas pelo Dashboard.

@@ -1,0 +1,3 @@
+Blink	
+
+O programa Blink serve somente para um teste de funcionamento do programa Flash e o Microcontrolador. O código faz com que o pequeno LED verde embutido pisque.

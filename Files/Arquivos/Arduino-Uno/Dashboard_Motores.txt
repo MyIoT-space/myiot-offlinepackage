@@ -1,0 +1,22 @@
+Motores + Dashboard 
+
+Acionamento de Motores via Ponte H:
+https://www.baudaeletronica.com.br/mini-ponte-h-l298n.html?gclid=Cj0KCQjw5-WRBhCKARIsAAId9FkSHbIBYgAehymi6Ug00BVEhB8ozMw5c8GCQUaBlB2lNWYmPB0Alj0aAuIeEALw_wcB
+
+Motor 1 Pinos D4 e D5:
+Para frente liga o D4 e reverso liga o D5
+
+Motor 2 D6 e D
+Para frente liga o D6 e reverso liga o D7
+
+Este Flash se conecta com o broker e reage conforme recebe os seguintes comandos:
+
+A ---> Gira os motores para a frente
+B ---> Gira os motores para a direita
+C ---> Gira os motores para a esquerda
+D ---> Gira o motor 1 para frente
+E ---> Gira o motor 2 para frente
+a ---> Gira os motores em reverso
+b ---> Desliga os motores
+d ---> Gira o motor 1 em reverso
+e ---> Gira o motor 2 em reverso

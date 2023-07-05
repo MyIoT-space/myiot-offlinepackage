@@ -1,0 +1,3 @@
+Terminal Teclado
+
+Este programa faz com que comandos sejam enviados ao Dashboard conforme botões são pressionados em ordens específicas. Para que isto aconteça, é necessário conectar o microcontrolador com este programa à um Broker.

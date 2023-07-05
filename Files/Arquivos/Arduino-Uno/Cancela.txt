@@ -1,0 +1,7 @@
+Cancela
+
+Este programa faz com que um sensor infravermelho acione o abrimento de um projeto de robรณtica de cancela.
+
+O código está programado para:
+- Um servomotor conectado às portas D0 e D1
+- Um sensor infravermelho conectado às portas D2 e D3
