@@ -3,57 +3,53 @@ from machine import Pin, ADC, sleep, UART
 from time import sleep
 import utime
 
-verde = Pin(19, Pin.OUT, value=0)
 
 
-import network
-import ujson
-import urequests
-led_azul = Pin(2, Pin.OUT, value=0)
-ssid = 'Rover'
-password = 'Modelix2017'
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True)
-if wlan.isconnected():
-    wlan.disconnect()
-wlan.config(dhcp_hostname='')
-maximo = 10
-if not wlan.isconnected():
-    tent = 0
-    wlan.connect(ssid, password)
-    while not wlan.isconnected():
-        tent += 1
-        if tent >= maximo:
-            break
-        utime.sleep_ms(500)
-if wlan.isconnected():
-    led_azul.on()
-else:
-    while True:
-        led_azul.on()
-        utime.sleep_ms(500)
-        led_azul.off()
-        utime.sleep_ms(500)
-print('network config:', wlan.ifconfig())
+
+
+
+from  ULTRASSONICOESP32 import HCSR04
+ultrassonico = HCSR04(trigger_pin=32, echo_pin=33, echo_timeout_us=10000)
+
+import OLEDESP32
+from machine import SoftI2C
+i2c = SoftI2C(scl=Pin(22), sda=Pin(21))
+oled = OLEDESP32.SSD1306_I2C(128, 32, i2c)
+last_text = '' 
+def OledPrint(text):
+    global last_text
+    if(text != last_text):
+        last_text = text
+        oled.fill(0)
+        oled.show()
+        words = text.split()
+        lines = []
+        current_line = ''
+        remaining_space = 14
+        for word in words:
+            if len(word) + 1 <= remaining_space:
+                current_line += word + ' '
+                remaining_space -= len(word) + 1
+            else:
+                lines.append(current_line)
+                current_line = word + ' '
+                remaining_space = 14 - len(word) - 1
+        lines.append(current_line)
+        for i, line in enumerate(lines):
+            oled.text(line, 0, i * 10)
+            oled.show()
+
+
+
+
+var0 = 0
 
 while(True):
-    verde.off()
-    url = 'https://APIMyoT.leonuzzy.repl.co/brokerreadcol'
-    data = {'coluna': 'A, String_D', 'ID': '3'}
-    payload = ujson.dumps(data)
-    headers = {'Content-Type': 'application/json'}
-    response = urequests.post(url, headers=headers, data=payload)
-    valor_IoT = response.text
-    valor_IoT = valor_IoT.split(';')[1][:-1]
-    print(valor_IoT)
-    response.close()
-    if valor_IoT == 'teste luis':
+    var0 = 0
 
-        verde.on()
-        sleep(1.00)
-    else:
 
-        verde.off()
+    OledPrint(f'cade o cascalho')
+
 
 
 
