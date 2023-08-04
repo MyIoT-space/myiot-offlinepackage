@@ -1,56 +1,59 @@
 finalCode: 
-from machine import Pin, ADC, sleep, UART
+from machine import Pin, ADC, sleep, UART, unique_id
 from time import sleep
 import utime
+import uasyncio as asyncio
+
+D2 = Pin(2, Pin.OUT, value=0)
+D4 = Pin(4, Pin.OUT, value=0)
 
 
 
-
-
-
-from  ULTRASSONICOESP32 import HCSR04
+from  hcsr04 import HCSR04
 ultrassonico = HCSR04(trigger_pin=32, echo_pin=33, echo_timeout_us=10000)
 
-import OLEDESP32
-from machine import SoftI2C
-i2c = SoftI2C(scl=Pin(22), sda=Pin(21))
-oled = OLEDESP32.SSD1306_I2C(128, 32, i2c)
-last_text = '' 
-def OledPrint(text):
-    global last_text
-    if(text != last_text):
-        last_text = text
-        oled.fill(0)
-        oled.show()
-        words = text.split()
-        lines = []
-        current_line = ''
-        remaining_space = 14
-        for word in words:
-            if len(word) + 1 <= remaining_space:
-                current_line += word + ' '
-                remaining_space -= len(word) + 1
-            else:
-                lines.append(current_line)
-                current_line = word + ' '
-                remaining_space = 14 - len(word) - 1
-        lines.append(current_line)
-        for i, line in enumerate(lines):
-            oled.text(line, 0, i * 10)
-            oled.show()
 
 
 
+async def threadData():
+    while(True):
+        pass
+        await asyncio.sleep_ms(500)
+async def thread0():
+    while(True):
+        pass
+        if(round(ultrassonico.distance_cm(),2) > (10)):
+            pass
 
-var0 = 0
-
-while(True):
-    var0 = 0
-
-
-    OledPrint(f'cade o cascalho')
+            D2.on()
+            D4.off()
+        else:
+            pass
 
 
+            D2.off()
+            D4.on()
+
+        await asyncio.sleep(0.3)
+def get_chip_id():
+    id = unique_id()
+    chip_id = 0
+    for i in range(0, 17, 8):
+        chip_id |= ((int.from_bytes(id, 'little') >> (40 - i)) & 0xff) << i
+    last_six = str(chip_id)[-6:]
+    device_name = 'ESP32 ' + last_six
+    print('Device: ', device_name)
+    return device_name
+async def main():
+    get_chip_id()
+    asyncio.create_task(threadData())
+    asyncio.create_task(thread0())
+try:
+    loop = asyncio.get_event_loop()
+    loop.create_task(main())
+    loop.run_forever()
+except Exception as e:
+    print('Erro: ', e)
 
 
     utime.sleep_ms(50)
