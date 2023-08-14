@@ -1,0 +1,1 @@
+[Errno 2] No such file or directory: 'C:\\Users\\danie\\AppData\\Local\\Temp\\_MEI129962\\Arquivos\\Flasher-MP\\ssd1306.txt'
