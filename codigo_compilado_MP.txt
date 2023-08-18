@@ -1,0 +1,97 @@
+finalCode: 
+from machine import Pin, ADC, sleep, UART, unique_id, reset
+from time import sleep
+import utime
+import uasyncio as asyncio
+
+D2 = Pin(2, Pin.OUT, value=0)
+
+
+import network
+import ujson
+import urequests
+from umqtt.simple import MQTTClient
+led_azul = Pin(2, Pin.OUT, value=0)
+ssid = 'Rover'
+password = 'Modelix2017'
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+if wlan.isconnected():
+    wlan.disconnect()
+wlan.config(dhcp_hostname='')
+maximo = 15
+if not wlan.isconnected():
+    tent = 0
+    wlan.connect(ssid, password)
+    while not wlan.isconnected():
+        tent += 1
+        if tent >= maximo:
+            break
+        utime.sleep_ms(750)
+if wlan.isconnected():
+    led_azul.on()
+else:
+    while True:
+        led_azul.on()
+        utime.sleep_ms(500)
+        led_azul.off()
+        utime.sleep_ms(500)
+print('network config:', wlan.ifconfig())
+
+
+async def threadData():
+    while(True):
+        pass
+        await asyncio.sleep_ms(500)
+async def thread0():
+    while(True):
+        pass
+        url = 'https://APIMyoT.leonuzzy.repl.co/brokerreadcol'
+        data = {'coluna': 'A, String_D', 'email': 'leon@leomar.com.br'}
+        payload = ujson.dumps(data)
+        headers = {'Content-Type': 'application/json'}
+        try:
+            response = urequests.post(url, headers=headers, data=payload)
+            valor_IoT = response.text
+            valor_IoT = valor_IoT.split(';')[1][:-1]
+            print(valor_IoT)
+            response.close()
+        except Exception as e:
+            print('meuperu')
+            reset()
+        if valor_IoT == 'coco':
+
+            pass
+
+            D2.off()
+            await asyncio.sleep(3.00)
+        else:
+            pass
+
+
+            D2.on()
+            await asyncio.sleep(2.00)
+
+        await asyncio.sleep(0.3)
+def get_chip_id():
+    id = unique_id()
+    chip_id = 0
+    for i in range(0, 17, 8):
+        chip_id |= ((int.from_bytes(id, 'little') >> (40 - i)) & 0xff) << i
+    last_six = str(chip_id)[-6:]
+    device_name = 'ESP32 ' + last_six
+    print('Device: ', device_name)
+    return device_name
+async def main():
+    get_chip_id()
+    asyncio.create_task(threadData())
+    asyncio.create_task(thread0())
+try:
+    loop = asyncio.get_event_loop()
+    loop.create_task(main())
+    loop.run_forever()
+except Exception as e:
+    print('Erro: ', e)
+
+
+    utime.sleep_ms(50)

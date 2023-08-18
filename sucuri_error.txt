@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "ClassMP.py", line 776, in run
+  File "ClassMP.py", line 179, in ProgramarESP
+  File "ClassMP.py", line 158, in WaitOKESP
+  File "ClassMP.py", line 123, in ReadLine
+OSError: [Errno 22] Invalid argument
+erro de placa desconectada[Errno 22] Invalid argument
