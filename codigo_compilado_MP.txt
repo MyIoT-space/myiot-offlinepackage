@@ -58,6 +58,7 @@ async def thread0():
             response.close()
         except Exception as e:
             print('meuperu')
+            asyncio.sleep(2.00)
             reset()
         if valor_IoT == 'coco':
 
