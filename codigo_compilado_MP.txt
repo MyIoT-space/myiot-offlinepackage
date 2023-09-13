@@ -7,36 +7,24 @@ import uasyncio as asyncio
 D2 = Pin(2, Pin.OUT, value=0)
 
 
-import network
-import ujson
-import urequests
-from umqtt.simple import MQTTClient
-led_azul = Pin(2, Pin.OUT, value=0)
-ssid = 'Rover'
-password = 'Modelix2017'
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True)
-if wlan.isconnected():
-    wlan.disconnect()
-wlan.config(dhcp_hostname='')
-maximo = 15
-if not wlan.isconnected():
-    tent = 0
-    wlan.connect(ssid, password)
-    while not wlan.isconnected():
-        tent += 1
-        if tent >= maximo:
-            break
-        utime.sleep_ms(750)
-if wlan.isconnected():
-    led_azul.on()
-else:
-    while True:
-        led_azul.on()
-        utime.sleep_ms(500)
-        led_azul.off()
-        utime.sleep_ms(500)
-print('network config:', wlan.ifconfig())
+
+
+
+INT1 = Pin(13, Pin.OUT)
+INT2 = Pin(5, Pin.OUT)
+def MA(dir):
+    if dir==0: INT1.off();INT2.off()
+    elif dir==1: INT1.on();INT2.off()
+    elif dir==2: INT1.off();INT2.on()
+
+INT3 = Pin(14, Pin.OUT)
+INT4 = Pin(27, Pin.OUT)
+def MB(dir):
+    if dir==0: INT3.off();INT4.off()
+    elif dir==1: INT3.on();INT4.off()
+    elif dir==2: INT3.off();INT4.on()
+
+
 
 
 async def threadData():
@@ -46,32 +34,10 @@ async def threadData():
 async def thread0():
     while(True):
         pass
-        url = 'https://APIMyoT.leonuzzy.repl.co/brokerreadcol'
-        data = {'coluna': 'A, String_D', 'email': 'leon@leomar.com.br'}
-        payload = ujson.dumps(data)
-        headers = {'Content-Type': 'application/json'}
-        try:
-            response = urequests.post(url, headers=headers, data=payload)
-            valor_IoT = response.text
-            valor_IoT = valor_IoT.split(';')[1][:-1]
-            print(valor_IoT)
-            response.close()
-        except Exception as e:
-            print('meuperu')
-            asyncio.sleep(2.00)
-            reset()
-        if valor_IoT == 'coco':
-
-            pass
-
-            D2.off()
-            await asyncio.sleep(3.00)
-        else:
-            pass
-
-
-            D2.on()
-            await asyncio.sleep(2.00)
+        D2.off()
+        await asyncio.sleep(1.00)
+        D2.on()
+        await asyncio.sleep(1.00)
 
         await asyncio.sleep(0.3)
 def get_chip_id():
