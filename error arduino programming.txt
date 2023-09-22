@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "ClassArduino.py", line 232, in run
+  File "ClassArduino.py", line 198, in GetArduinoCode
+  File "ClassArduino.py", line 84, in Sucuri2Arduino
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+error arduino programmingunsupported operand type(s) for /: 'str' and 'int'
