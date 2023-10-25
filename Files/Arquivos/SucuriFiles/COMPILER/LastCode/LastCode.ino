@@ -1,17 +1,13 @@
 #include "Funcs.h"
 
-
 void setup(){
-
-
-
-Serial.begin(9600);
+#define D11 11
+pinMode(D11, OUTPUT);
 
 
 }
 void loop(){
-    Serial.println("#mensagem dadsasdasd+_&@%$$_++_&@%$$_+");
-
+    digitalWrite(D11, HIGH);
 
 
 }
