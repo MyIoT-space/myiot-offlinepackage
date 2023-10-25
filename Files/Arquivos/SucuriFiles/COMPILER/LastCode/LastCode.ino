@@ -1,17 +1,21 @@
 #include "Funcs.h"
 
-
 void setup(){
-
-
-
-Serial.begin(9600);
+#define D2(BIP) 2
+pinMode(D2(BIP), OUTPUT);
+#define D9 9
+pinMode(D9, INPUT);
 
 
 }
 void loop(){
-    Serial.println("#mensagem dadsasdasd+_&@%$$_++_&@%$$_+");
+    if(digitalRead(D9) == HIGH){
+        digitalWrite(D2(BIP), HIGH);
+        delay(1.00*1000.0);
+    }
 
+    digitalWrite(D2(BIP), LOW);
+    delay(1.00*1000.0);
 
 
 }
