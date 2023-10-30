@@ -4,36 +4,50 @@
 /**********************************************************************/
 // FUNÇÃO PARA LEITURA DA SERIAL
 /***********************************************************************/
-const byte numChars = 32;
-char receivedChars[numChars]; // an array to store the received data
-String serialrx;
+// const byte numChars = 32;
+// char receivedChars[numChars]; // an array to store the received data
+// String serialrx;
 
-String ler_serial() {
-  static byte ndx = 0;
-  char rc;
+// String ler_serial() {
+//   static byte ndx = 0;
+//   char rc;
 
-  while (Serial.available() > 0) {
-    rc = Serial.read();
+//   while (Serial.available() > 0) {
+//     rc = Serial.read();
 
-    if (rc != '\n' && rc != '\r') {
-      receivedChars[ndx] = rc;
-      ndx++;
-      if (ndx >= numChars) {
-        ndx = numChars - 1;
-      }
-    }
-    else {
-      receivedChars[ndx] = '\0'; // terminate the string
-      ndx = 0;
-//      Serial.println(receivedChars);
-      serialrx = String(receivedChars);
-      return serialrx;
-    }
+//     if (rc != '\n' && rc != '\r') {
+//       receivedChars[ndx] = rc;
+//       ndx++;
+//       if (ndx >= numChars) {
+//         ndx = numChars - 1;
+//       }
+//     }
+//     else {
+//       receivedChars[ndx] = '\0'; // terminate the string
+//       ndx = 0;
+// //      Serial.println(receivedChars);
+//       serialrx = String(receivedChars);
+//       return serialrx;
+//     }
+//   }
+
+//   return "";
+  
+// }
+char ler_serial() {
+  char data;
+  if (Serial.available() > 0) {
+    data = Serial.read(); // Read the data
   }
 
-  return "";
-  
+  while (Serial.available() > 0) {
+      Serial.read();
+    }
+  return data;
+
 }
+
+
 
 
 
