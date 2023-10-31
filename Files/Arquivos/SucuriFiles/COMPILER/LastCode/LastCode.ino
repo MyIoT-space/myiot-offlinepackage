@@ -1,20 +1,23 @@
 #include "Funcs.h"
 
+
 void setup(){
-#define D2(BIP) 2
-pinMode(D2(BIP), OUTPUT);
-#define D9 9
-pinMode(D9, INPUT);
+
+
+#define D11 11
+pinMode(D11, OUTPUT);
+
+Serial.begin(9600);
 
 
 }
 void loop(){
-    if(digitalRead(D9) == HIGH){
-        digitalWrite(D2(BIP), HIGH);
+    if(ler_serial() == 'A'){
+        digitalWrite(D11, HIGH);
         delay(1.00*1000.0);
     }
 
-    digitalWrite(D2(BIP), LOW);
+    digitalWrite(D11, LOW);
     delay(1.00*1000.0);
 
 
